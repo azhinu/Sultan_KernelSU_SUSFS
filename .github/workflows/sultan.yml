@@ -73,7 +73,7 @@ jobs:
             curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s next
           elif [ "${{ inputs.ksu_type }}" == "suki-su" ]; then
             echo "  ➡️ Adding Suki-SU..."
-            curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s susfs-main
+            curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/refs/tags/v4.0.0/kernel/setup.sh" | bash -s susfs-main
           elif [ "${{ inputs.ksu_type }}" == "5ec1cff" ]; then
             echo "  ➡️ Adding 5ec1cff..."
             curl -LSs "https://raw.githubusercontent.com/5ec1cff/KernelSU/main/kernel/setup.sh" | bash -s main
@@ -183,13 +183,13 @@ jobs:
 
           echo "Kernel version detected: ${KERNEL_VER}"
 
-      - name: Add BBG
-        run: |
-          cd "$CONFIG"
-          echo "Adding BBG..."
-          wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash
-          echo "CONFIG_BBG=y" >> ./arch/arm64/configs/${{ inputs.codename }}_defconfig
-          sed -i '/^config LSM$/,/^help$/{ /^[[:space:]]*default/ { /baseband_guard/! s/lockdown/lockdown,baseband_guard/ } }' security/Kconfig
+      # - name: Add BBG
+      #   run: |
+      #     cd "$CONFIG"
+      #     echo "Adding BBG..."
+      #     wget -O- https://github.com/vc-teahouse/Baseband-guard/raw/main/setup.sh | bash
+      #     echo "CONFIG_BBG=y" >> ./arch/arm64/configs/${{ inputs.codename }}_defconfig
+      #     sed -i '/^config LSM$/,/^help$/{ /^[[:space:]]*default/ { /baseband_guard/! s/lockdown/lockdown,baseband_guard/ } }' security/Kconfig
 
       - name: Add SUSFS Configuration Settings
         run: |

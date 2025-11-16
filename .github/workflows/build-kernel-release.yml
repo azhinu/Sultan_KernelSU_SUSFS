@@ -50,7 +50,7 @@ on:
           - ksu-next
           - suki-su
           - 5ec1cff
-        default: 'ksu-next'
+        default: 'suki-su'
       create_release:
         description: 'Create a release after matrix build?'
         required: false
