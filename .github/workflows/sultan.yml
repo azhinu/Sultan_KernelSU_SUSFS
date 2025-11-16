@@ -73,7 +73,7 @@ jobs:
             curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s next
           elif [ "${{ inputs.ksu_type }}" == "suki-su" ]; then
             echo "  ➡️ Adding Suki-SU..."
-            curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/refs/tags/v4.0.0/kernel/setup.sh" | bash -s susfs-main
+            curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s susfs-main
           elif [ "${{ inputs.ksu_type }}" == "5ec1cff" ]; then
             echo "  ➡️ Adding 5ec1cff..."
             curl -LSs "https://raw.githubusercontent.com/5ec1cff/KernelSU/main/kernel/setup.sh" | bash -s main
